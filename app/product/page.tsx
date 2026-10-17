@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: { absolute: "IPTV Canada Plans & Prices – From C$13.99 | IPTV Canada" },
   description:
     "Compare IPTV Canada plans from C$13.99: 1, 3, 6, 12 or 24 months with 50,000+ channels, 4K Ultra HD and 7-day catch-up. No contract, instant activation.",
-  alternates: { canonical: "https://controlyourself.ca/product" },
+  alternates: { canonical: "https://controlyourself.ca/product", languages: { "en-CA": "https://controlyourself.ca/product", "fr-CA": "https://controlyourself.ca/fr/product", "x-default": "https://controlyourself.ca/product" } },
   openGraph: {
     title: "IPTV Canada Plans & Prices – From C$13.99 | IPTV Canada",
     description:

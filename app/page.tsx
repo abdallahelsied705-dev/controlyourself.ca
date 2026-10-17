@@ -28,7 +28,10 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  alternates: { canonical: BASE_URL },
+  alternates: {
+    canonical: BASE_URL,
+    languages: { "en-CA": BASE_URL, "fr-CA": `${BASE_URL}/fr`, "x-default": BASE_URL },
+  },
   openGraph: { title: TITLE, description: DESCRIPTION, url: BASE_URL },
   twitter: { title: TITLE, description: DESCRIPTION },
 };

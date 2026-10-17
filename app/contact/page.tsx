@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: { absolute: "Contact IPTV Canada Support — 24/7 WhatsApp & Email" },
   description:
     "Get instant help from IPTV Canada support. Available 24/7 via WhatsApp or email for setup, billing, and technical issues. Typical response: under 5 minutes.",
-  alternates: { canonical: "https://controlyourself.ca/contact" },
+  alternates: { canonical: "https://controlyourself.ca/contact", languages: { "en-CA": "https://controlyourself.ca/contact", "fr-CA": "https://controlyourself.ca/fr/contact", "x-default": "https://controlyourself.ca/contact" } },
   openGraph: {
     title: "Contact IPTV Canada — 24/7 Support",
     description: "Reach our support team instantly via WhatsApp or email.",

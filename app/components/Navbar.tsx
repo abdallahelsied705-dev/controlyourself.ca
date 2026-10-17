@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X, Tv } from "lucide-react";
+import { Menu, X, Tv, Globe } from "lucide-react";
 
 const links = [
   { label: "Home", href: "/" },
@@ -60,6 +60,13 @@ export default function Navbar({ withBanner = false }: { withBanner?: boolean })
 
           {/* CTA */}
           <div className="hidden items-center gap-3 md:flex">
+            <Link
+              href="/fr"
+              hrefLang="fr-CA"
+              className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 text-xs font-semibold text-zinc-300 transition-colors hover:border-brand-400/50 hover:text-white"
+            >
+              <Globe size={13} /> FR
+            </Link>
             <Link href="/#pricing" className="text-sm text-zinc-400 transition-colors hover:text-white">
               Sign In
             </Link>
@@ -100,6 +107,15 @@ export default function Navbar({ withBanner = false }: { withBanner?: boolean })
                   {l.label}
                 </Link>
               ))}
+              <Link
+                href="/fr"
+                hrefLang="fr-CA"
+                onClick={() => setOpen(false)}
+                className="rounded-lg px-3 py-2.5 text-sm text-zinc-300 transition-colors hover:bg-white/5 hover:text-white"
+              >
+                Français
+              </Link>
+
               <Link
                 href="/#pricing"
                 onClick={() => setOpen(false)}
