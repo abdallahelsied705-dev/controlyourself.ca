@@ -72,7 +72,7 @@ export default function FrProduct() {
                   )}
                   <p className="text-sm font-semibold text-zinc-300">{p.label}</p>
                   <p className="mt-3 font-display text-3xl font-bold text-white">
-                    {p.price} <span className="text-base font-medium text-zinc-400">$CA</span>
+                    {p.price} <span className="text-base font-medium text-zinc-400">$</span>
                   </p>
                   <p className="mt-1 text-xs text-brand-300">{p.perMonth}</p>
                   <p className="mt-3 flex-1 text-sm text-zinc-400">{p.blurb}</p>
