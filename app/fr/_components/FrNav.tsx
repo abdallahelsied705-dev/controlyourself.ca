@@ -7,12 +7,12 @@ import { Menu, X, Tv, Globe } from "lucide-react";
 const links = [
   { label: "Accueil", href: "/fr" },
   { label: "Forfaits", href: "/fr/product" },
-  { label: "Chaînes", href: "/fr#chaines" },
-  { label: "Tarifs", href: "/fr#tarifs" },
+  { label: "Chaînes", href: "/fr#channels" },
+  { label: "Tarifs", href: "/fr#pricing" },
   { label: "Contact", href: "/fr/contact" },
 ];
 
-export default function FrNav() {
+export default function FrNav({ withBanner = false }: { withBanner?: boolean }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -24,7 +24,7 @@ export default function FrNav() {
   }, []);
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 px-3 sm:px-6">
+    <nav className={`fixed inset-x-0 top-0 z-50 px-3 sm:px-6 ${withBanner ? "mt-[42px]" : ""}`}>
       <div
         className={`mx-auto max-w-7xl rounded-2xl border transition-all duration-500 ${
           scrolled || open
@@ -63,7 +63,7 @@ export default function FrNav() {
               <Globe size={13} /> EN
             </Link>
             <Link
-              href="/fr#tarifs"
+              href="/fr#pricing"
               className="rounded-full bg-gradient-to-r from-brand-600 to-brand-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-brand-600/30 transition-transform hover:scale-105"
             >
               Commencer
@@ -106,7 +106,7 @@ export default function FrNav() {
                 English
               </Link>
               <Link
-                href="/fr#tarifs"
+                href="/fr#pricing"
                 onClick={() => setOpen(false)}
                 className="mt-2 rounded-full bg-gradient-to-r from-brand-600 to-brand-500 px-4 py-2.5 text-center text-sm font-semibold text-white"
               >

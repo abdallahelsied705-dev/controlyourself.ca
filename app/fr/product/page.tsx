@@ -107,7 +107,7 @@ export default function FrProduct() {
               ))}
             </ul>
             <div className="reveal mt-12 text-center">
-              <Link href="/fr#tarifs" className="text-sm text-brand-300 underline-offset-4 hover:underline">
+              <Link href="/fr#pricing" className="text-sm text-brand-300 underline-offset-4 hover:underline">
                 ← Retour à l&apos;accueil
               </Link>
             </div>

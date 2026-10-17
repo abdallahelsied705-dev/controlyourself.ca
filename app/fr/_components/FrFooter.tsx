@@ -7,9 +7,9 @@ const EMAIL = "supportteamiptv@gmail.com";
 const columns: Record<string, { label: string; href: string }[]> = {
   "Le service": [
     { label: "Forfaits", href: "/fr/product" },
-    { label: "Tarifs", href: "/fr#tarifs" },
-    { label: "Chaînes", href: "/fr#chaines" },
-    { label: "Essai gratuit", href: "/fr#tarifs" },
+    { label: "Tarifs", href: "/fr#pricing" },
+    { label: "Chaînes", href: "/fr#channels" },
+    { label: "Essai gratuit", href: "/fr#pricing" },
   ],
   Entreprise: [
     { label: "Contact", href: "/fr/contact" },
