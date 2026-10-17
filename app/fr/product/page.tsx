@@ -124,6 +124,12 @@ export default function FrProduct() {
                     S&apos;abonner
                     <ArrowRight size={15} />
                   </a>
+                  <Link
+                    href={`/fr/product/${p.slug}`}
+                    className="mt-3 text-center text-xs text-zinc-400 underline-offset-4 transition-colors hover:text-white hover:underline"
+                  >
+                    Voir les détails
+                  </Link>
                 </div>
               ))}
             </div>

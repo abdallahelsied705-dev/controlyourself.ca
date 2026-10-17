@@ -23,7 +23,14 @@ export async function generateMetadata({
   return {
     title: { absolute: product.metaTitle },
     description: product.metaDescription,
-    alternates: { canonical: `https://controlyourself.ca/product/${slug}` },
+    alternates: {
+      canonical: `https://controlyourself.ca/product/${slug}`,
+      languages: {
+        "en-CA": `https://controlyourself.ca/product/${slug}`,
+        "fr-CA": `https://controlyourself.ca/fr/product/${slug}`,
+        "x-default": `https://controlyourself.ca/product/${slug}`,
+      },
+    },
     openGraph: {
       title: product.metaTitle,
       description: product.metaDescription,

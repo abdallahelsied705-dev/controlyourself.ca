@@ -235,6 +235,7 @@ export default async function BlogPostPage({ params }: Props) {
             <time dateTime={post.updated ?? post.date} className="text-zinc-500 text-xs">
               {post.updated ? `Updated ${formatDate(post.updated)}` : formatDate(post.date)}
             </time>
+            <span className="text-zinc-500 text-xs">By the IPTV Canada team</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-4">
