@@ -121,7 +121,7 @@ export default function FrGuide() {
                 {plans.map((p) => (
                   <tr key={p.plan} className="border-t border-white/5">
                     <th scope="row" className="px-6 py-3 text-left font-medium text-zinc-200">
-                      <Link href={`/product/${p.months}-month-iptv-canada`} className="underline-offset-4 hover:text-white hover:underline">
+                      <Link href="/fr/product" className="underline-offset-4 hover:text-white hover:underline">
                         {p.plan}
                       </Link>
                     </th>

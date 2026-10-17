@@ -37,7 +37,7 @@ function Cell({ value, good }: { value: string | boolean; good?: boolean }) {
   return <span className={good ? "font-semibold text-white" : "text-zinc-400"}>{value}</span>;
 }
 
-export default function IptvUkGuide() {
+export default function Guide() {
   return (
     <section id="what-is-iptv-canada" className="relative bg-ink-950 py-24" aria-labelledby="what-is-iptv-canada-title">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-5 lg:px-8">

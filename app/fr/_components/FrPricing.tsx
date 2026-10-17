@@ -161,7 +161,7 @@ export default function FrPricing() {
                   <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
                 </a>
                 <Link
-                  href={`/product/${plan.months}-month-iptv-canada`}
+                  href="/fr/product"
                   className="mt-3 text-center text-xs text-zinc-400 underline-offset-4 transition-colors hover:text-white hover:underline"
                 >
                   Détails du forfait {plan.name}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import IptvUkGuide from "./components/IptvUkGuide";
+import Guide from "./components/Guide";
 import Features from "./components/Features";
 import Devices from "./components/Devices";
 import Setup from "./components/Setup";
@@ -127,7 +127,7 @@ export default function Home() {
       <Navbar withBanner />
       <main>
         <Hero />
-        <IptvUkGuide />
+        <Guide />
         <Features />
         <Pricing />
         <Devices />

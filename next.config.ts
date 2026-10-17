@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Preserve link equity from the domain's previous life (2008-2009
+      // identi.ca / StatusNet tech blog, backlinked from nytimes, techcrunch,
+      // ycombinator, umd.edu). Those dated post URLs 301 to the homepage.
+      { source: "/2008/:path*", destination: "/", permanent: true },
+      { source: "/2009/:path*", destination: "/", permanent: true },
       {
         source: "/blog/watch-premier-league-without-sky",
         destination: "/blog/watch-live-football-canada-iptv",
