@@ -20,9 +20,9 @@ import { SITE_URL } from "../lib/site";
 
 const BASE = SITE_URL;
 
-const TITLE = "IPTV Québec & Canada français — 50 000+ chaînes en 4K | IPTV Canada";
+const TITLE = "IPTV Québec & Canada — 50 000+ chaînes en 4K | IPTV Canada";
 const DESCRIPTION =
-  "Abonnement IPTV au Canada : plus de 50 000 chaînes en direct et 200 000 films et séries jusqu'en 4K, diffusés par Internet. Fonctionne sur Firestick, télé intelligente, Android et iPhone. Sans contrat, essai gratuit de 24 h, prix en dollars canadiens.";
+  "Abonnement IPTV au Canada : 50 000+ chaînes en direct et 200 000+ films et séries jusqu'en 4K par Internet. Sur Firestick, télé et téléphone. Essai gratuit de 24 h.";
 
 const plans = [
   { slug: "1-month-iptv-canada", price: "13.99" },

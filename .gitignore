@@ -4,3 +4,6 @@ node_modules/
 .DS_Store
 .env*.local
 /iptv-british.com-audit/
+
+# SEO audit output (local only)
+controlyourself.ca-audit/

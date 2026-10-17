@@ -9,7 +9,7 @@ const BASE = SITE_URL;
 
 const TITLE = "Forfaits IPTV Canada — tarifs en dollars canadiens | IPTV Canada";
 const DESCRIPTION =
-  "Tous les forfaits IPTV Canada en dollars canadiens : 1, 3, 6, 12 ou 24 mois, dès 6,63 $/mois. Plus de 50 000 chaînes, jusqu'en 4K, reprise sur 7 jours, sans contrat, essai gratuit de 24 h.";
+  "Forfaits IPTV Canada en dollars canadiens : 1 à 24 mois, dès 6,63 $/mois. 50 000+ chaînes, jusqu'en 4K, sans contrat, essai gratuit de 24 h.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -39,9 +39,44 @@ const included = [
   "Assistance sur WhatsApp, jour et nuit",
 ];
 
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "@id": `${BASE}/fr/product#product`,
+      name: "Abonnement IPTV Canada",
+      description: DESCRIPTION,
+      brand: { "@type": "Brand", name: "IPTV Canada" },
+      offers: {
+        "@type": "AggregateOffer",
+        priceCurrency: "CAD",
+        lowPrice: "13.99",
+        highPrice: "159",
+        offerCount: 5,
+        offers: [
+          { "@type": "Offer", price: "13.99", priceCurrency: "CAD", availability: "https://schema.org/InStock", url: `${BASE}/product/1-month-iptv-canada` },
+          { "@type": "Offer", price: "34.99", priceCurrency: "CAD", availability: "https://schema.org/InStock", url: `${BASE}/product/3-month-iptv-canada` },
+          { "@type": "Offer", price: "54.99", priceCurrency: "CAD", availability: "https://schema.org/InStock", url: `${BASE}/product/6-month-iptv-canada` },
+          { "@type": "Offer", price: "94.99", priceCurrency: "CAD", availability: "https://schema.org/InStock", url: `${BASE}/product/12-month-iptv-canada` },
+          { "@type": "Offer", price: "159", priceCurrency: "CAD", availability: "https://schema.org/InStock", url: `${BASE}/product/24-month-iptv-canada` },
+        ],
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Accueil", item: `${BASE}/fr` },
+        { "@type": "ListItem", position: 2, name: "Forfaits", item: `${BASE}/fr/product` },
+      ],
+    },
+  ],
+};
+
 export default function FrProduct() {
   return (
     <div lang="fr-CA">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <FrNav />
       <main className="bg-ink-950">
         <section className="relative overflow-hidden pb-10 pt-36 sm:pt-44">

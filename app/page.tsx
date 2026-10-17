@@ -23,7 +23,7 @@ const BASE_URL = SITE_URL;
 
 const TITLE = "IPTV Canada 2026 — 50,000+ Live Channels & 4K Subscription";
 const DESCRIPTION =
-  "A Canadian IPTV subscription with 50,000+ live channels and 200,000+ movies & series in up to 4K, streamed over your internet. Works on Firestick, Smart TV, Android & iPhone. Plans from C$13.99, free 24-hour trial.";
+  "Canadian IPTV with 50,000+ live channels and 200,000+ movies & series in up to 4K over your internet. Works on any device. Free 24-hour trial, from C$13.99.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },

@@ -24,9 +24,32 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": `${BASE}/fr/contact#webpage`,
+      url: `${BASE}/fr/contact`,
+      name: TITLE,
+      description: DESCRIPTION,
+      inLanguage: "fr-CA",
+      about: { "@id": `${BASE}/#organization` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Accueil", item: `${BASE}/fr` },
+        { "@type": "ListItem", position: 2, name: "Contact", item: `${BASE}/fr/contact` },
+      ],
+    },
+  ],
+};
+
 export default function FrContact() {
   return (
     <div lang="fr-CA">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <FrNav />
       <main className="bg-ink-950">
         <section className="relative overflow-hidden pb-10 pt-36 sm:pt-44">
