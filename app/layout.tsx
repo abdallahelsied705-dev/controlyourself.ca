@@ -3,6 +3,7 @@ import { Inter, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Motion from "./components/Motion";
 import { SITE_URL } from "./lib/site";
+import { Analytics } from "@vercel/analytics/next";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space",
@@ -99,6 +100,7 @@ export default function RootLayout({
         </noscript>
         {children}
         <Motion />
+        <Analytics />
       </body>
     </html>
   );
