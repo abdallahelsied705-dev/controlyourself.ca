@@ -4,11 +4,11 @@ import LegalPage from "../components/LegalPage";
 export const metadata: Metadata = {
   title: { absolute: "Refund Policy — IPTV Canada | 48-Hour Refunds" },
   description: "IPTV Canada refund policy: request a refund within 48 hours if the service doesn't work as described, plus pro-rated refunds for unresolved faults.",
-  alternates: { canonical: "https://controlyourself.ca/refund-policy" },
+  alternates: { canonical: "https://www.controlyourself.ca/refund-policy" },
   openGraph: {
     title: "Refund Policy — IPTV Canada",
     description: "48-hour refund guarantee if unsatisfied with service.",
-    url: "https://controlyourself.ca/refund-policy",
+    url: "https://www.controlyourself.ca/refund-policy",
   },
 };
 

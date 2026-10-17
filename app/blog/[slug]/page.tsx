@@ -34,12 +34,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      url: `https://controlyourself.ca/blog/${post.slug}`,
+      url: `https://www.controlyourself.ca/blog/${post.slug}`,
       type: "article",
       publishedTime: post.date,
       modifiedTime: post.updated ?? post.date,
     },
-    alternates: { canonical: `https://controlyourself.ca/blog/${post.slug}` },
+    alternates: { canonical: `https://www.controlyourself.ca/blog/${post.slug}` },
   };
 }
 
@@ -162,24 +162,24 @@ export default async function BlogPostPage({ params }: Props) {
     "@type": "Article",
     headline: post.title,
     description: post.description ?? post.excerpt,
-    image: `https://controlyourself.ca${post.coverImage ?? "/opengraph-image"}`,
+    image: `https://www.controlyourself.ca${post.coverImage ?? "/opengraph-image"}`,
     datePublished: post.date,
     dateModified: post.updated ?? post.date,
-    url: `https://controlyourself.ca/blog/${post.slug}`,
+    url: `https://www.controlyourself.ca/blog/${post.slug}`,
     inLanguage: "en-CA",
-    mainEntityOfPage: `https://controlyourself.ca/blog/${post.slug}`,
+    mainEntityOfPage: `https://www.controlyourself.ca/blog/${post.slug}`,
     author: {
       "@type": "Organization",
       name: "IPTV Canada",
-      url: "https://controlyourself.ca",
+      url: "https://www.controlyourself.ca",
     },
     publisher: {
       "@type": "Organization",
       name: "IPTV Canada",
-      url: "https://controlyourself.ca",
+      url: "https://www.controlyourself.ca",
       logo: {
         "@type": "ImageObject",
-        url: "https://controlyourself.ca/favicon.svg",
+        url: "https://www.controlyourself.ca/favicon.svg",
       },
     },
   };
@@ -192,19 +192,19 @@ export default async function BlogPostPage({ params }: Props) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://controlyourself.ca",
+        item: "https://www.controlyourself.ca",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://controlyourself.ca/blog",
+        item: "https://www.controlyourself.ca/blog",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: post.title,
-        item: `https://controlyourself.ca/blog/${post.slug}`,
+        item: `https://www.controlyourself.ca/blog/${post.slug}`,
       },
     ],
   };

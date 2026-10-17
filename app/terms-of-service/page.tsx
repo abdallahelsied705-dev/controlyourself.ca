@@ -4,11 +4,11 @@ import LegalPage from "../components/LegalPage";
 export const metadata: Metadata = {
   title: { absolute: "Terms of Service — IPTV Canada | IPTV Subscription Terms" },
   description: "Read IPTV Canada's terms and conditions. Understand your rights, responsibilities, and acceptable use policy for our IPTV streaming service.",
-  alternates: { canonical: "https://controlyourself.ca/terms-of-service" },
+  alternates: { canonical: "https://www.controlyourself.ca/terms-of-service" },
   openGraph: {
     title: "Terms of Service — IPTV Canada",
     description: "Terms and conditions for IPTV Canada service.",
-    url: "https://controlyourself.ca/terms-of-service",
+    url: "https://www.controlyourself.ca/terms-of-service",
   },
 };
 

@@ -4,11 +4,11 @@ import LegalPage from "../components/LegalPage";
 export const metadata: Metadata = {
   title: { absolute: "Privacy Policy — IPTV Canada | Your Data Protection" },
   description: "Learn how IPTV Canada collects, uses, and protects your personal data. We prioritize your privacy and security. Full transparency on data handling.",
-  alternates: { canonical: "https://controlyourself.ca/privacy-policy" },
+  alternates: { canonical: "https://www.controlyourself.ca/privacy-policy" },
   openGraph: {
     title: "Privacy Policy — IPTV Canada",
     description: "How we protect and use your personal data.",
-    url: "https://controlyourself.ca/privacy-policy",
+    url: "https://www.controlyourself.ca/privacy-policy",
   },
 };
 

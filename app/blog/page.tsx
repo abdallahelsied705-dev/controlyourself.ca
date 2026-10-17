@@ -14,9 +14,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "IPTV Canada Guides: Setup, Apps & Tips | IPTV Canada",
     description: "Setup guides, app comparisons and buying advice for IPTV in Canada.",
-    url: "https://controlyourself.ca/blog",
+    url: "https://www.controlyourself.ca/blog",
   },
-  alternates: { canonical: "https://controlyourself.ca/blog" },
+  alternates: { canonical: "https://www.controlyourself.ca/blog" },
 };
 
 const categoryColors: Record<string, string> = {
@@ -47,13 +47,13 @@ export default function BlogPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://controlyourself.ca",
+        item: "https://www.controlyourself.ca",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://controlyourself.ca/blog",
+        item: "https://www.controlyourself.ca/blog",
       },
     ],
   };
@@ -64,11 +64,11 @@ export default function BlogPage() {
     name: "IPTV Canada Blog",
     description:
       "IPTV guides, tips, troubleshooting and comparisons. Learn how to get the most from your IPTV Canada subscription.",
-    url: "https://controlyourself.ca/blog",
+    url: "https://www.controlyourself.ca/blog",
     mainEntity: posts.map((post) => ({
       "@type": "Article",
       headline: post.title,
-      url: `https://controlyourself.ca/blog/${post.slug}`,
+      url: `https://www.controlyourself.ca/blog/${post.slug}`,
       datePublished: post.date,
       dateModified: post.updated ?? post.date,
       description: post.excerpt,

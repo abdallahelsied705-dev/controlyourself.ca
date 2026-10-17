@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: { absolute: "About IPTV Canada — Our Approach to Canadian Streaming" },
   description:
     "Who we are: an IPTV Canada service built on honest pricing, a stable stream and real WhatsApp support. 50,000+ live channels in up to 4K, with no contracts.",
-  alternates: { canonical: "https://controlyourself.ca/about" },
+  alternates: { canonical: "https://www.controlyourself.ca/about" },
   openGraph: {
     title: "About IPTV Canada — Premium Canadian IPTV Service",
     description: "An IPTV Canada service with 50,000+ live channels, 4K streaming and 24/7 WhatsApp support.",
-    url: "https://controlyourself.ca/about",
+    url: "https://www.controlyourself.ca/about",
   },
 };
 
@@ -29,7 +29,7 @@ const aboutSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "About IPTV Canada",
-  url: "https://controlyourself.ca/about",
+  url: "https://www.controlyourself.ca/about",
   description:
     "IPTV Canada is a Canadian IPTV service built on honest pricing, a stable stream and real support — 50,000+ live channels and 200,000+ on-demand titles in up to 4K.",
 };

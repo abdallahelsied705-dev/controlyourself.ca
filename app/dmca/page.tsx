@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: { absolute: "DMCA Policy — IPTV Canada | Copyright Notices" },
   description:
     "IPTV Canada respects intellectual property rights. Read our DMCA policy to learn how to submit a copyright infringement notice or a counter-notice.",
-  alternates: { canonical: "https://controlyourself.ca/dmca" },
+  alternates: { canonical: "https://www.controlyourself.ca/dmca" },
   openGraph: {
     title: "DMCA Policy — IPTV Canada",
     description: "How to submit a copyright infringement notice or counter-notice.",
-    url: "https://controlyourself.ca/dmca",
+    url: "https://www.controlyourself.ca/dmca",
   },
 };
 

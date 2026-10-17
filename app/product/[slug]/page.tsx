@@ -24,17 +24,17 @@ export async function generateMetadata({
     title: { absolute: product.metaTitle },
     description: product.metaDescription,
     alternates: {
-      canonical: `https://controlyourself.ca/product/${slug}`,
+      canonical: `https://www.controlyourself.ca/product/${slug}`,
       languages: {
-        "en-CA": `https://controlyourself.ca/product/${slug}`,
-        "fr-CA": `https://controlyourself.ca/fr/product/${slug}`,
-        "x-default": `https://controlyourself.ca/product/${slug}`,
+        "en-CA": `https://www.controlyourself.ca/product/${slug}`,
+        "fr-CA": `https://www.controlyourself.ca/fr/product/${slug}`,
+        "x-default": `https://www.controlyourself.ca/product/${slug}`,
       },
     },
     openGraph: {
       title: product.metaTitle,
       description: product.metaDescription,
-      url: `https://controlyourself.ca/product/${slug}`,
+      url: `https://www.controlyourself.ca/product/${slug}`,
     },
   };
 }
@@ -84,7 +84,7 @@ export default async function ProductPage({
     "@type": "Product",
     name: product.name,
     description: product.metaDescription,
-    image: "https://controlyourself.ca/opengraph-image",
+    image: "https://www.controlyourself.ca/opengraph-image",
     brand: { "@type": "Brand", name: "IPTV Canada" },
     offers: {
       "@type": "Offer",
@@ -92,7 +92,7 @@ export default async function ProductPage({
       priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       priceValidUntil: "2026-12-31",
-      url: `https://controlyourself.ca/product/${product.slug}`,
+      url: `https://www.controlyourself.ca/product/${product.slug}`,
     },
   };
 
@@ -100,13 +100,13 @@ export default async function ProductPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://controlyourself.ca" },
-      { "@type": "ListItem", position: 2, name: "Product", item: "https://controlyourself.ca/product" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.controlyourself.ca" },
+      { "@type": "ListItem", position: 2, name: "Product", item: "https://www.controlyourself.ca/product" },
       {
         "@type": "ListItem",
         position: 3,
         name: product.name,
-        item: `https://controlyourself.ca/product/${product.slug}`,
+        item: `https://www.controlyourself.ca/product/${product.slug}`,
       },
     ],
   };

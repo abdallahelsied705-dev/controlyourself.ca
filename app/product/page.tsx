@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: { absolute: "IPTV Canada Plans & Prices – From C$13.99 | IPTV Canada" },
   description:
     "Compare IPTV Canada plans from C$13.99: 1, 3, 6, 12 or 24 months with 50,000+ channels, 4K Ultra HD and 7-day catch-up. No contract, instant activation.",
-  alternates: { canonical: "https://controlyourself.ca/product", languages: { "en-CA": "https://controlyourself.ca/product", "fr-CA": "https://controlyourself.ca/fr/product", "x-default": "https://controlyourself.ca/product" } },
+  alternates: { canonical: "https://www.controlyourself.ca/product", languages: { "en-CA": "https://www.controlyourself.ca/product", "fr-CA": "https://www.controlyourself.ca/fr/product", "x-default": "https://www.controlyourself.ca/product" } },
   openGraph: {
     title: "IPTV Canada Plans & Prices – From C$13.99 | IPTV Canada",
     description:
       "50,000+ channels, 4K streaming, 7-day catch-up. Plans from C$13.99. Compare 1, 3, 6, 12 and 24-month IPTV Canada subscriptions.",
-    url: "https://controlyourself.ca/product",
+    url: "https://www.controlyourself.ca/product",
   },
 };
 
@@ -26,7 +26,7 @@ const catalogSchema = {
   name: "IPTV Canada Subscription",
   description:
     "Premium IPTV Canada subscription with 50,000+ live channels, 200,000+ VODs, 4K Ultra HD quality, 7-day catch-up TV, and 24/7 support.",
-  image: "https://controlyourself.ca/opengraph-image",
+  image: "https://www.controlyourself.ca/opengraph-image",
   brand: { "@type": "Brand", name: "IPTV Canada" },
   offers: products.map((p) => ({
     "@type": "Offer",
@@ -35,7 +35,7 @@ const catalogSchema = {
     priceCurrency: "CAD",
     availability: "https://schema.org/InStock",
     priceValidUntil: "2026-12-31",
-    url: `https://controlyourself.ca/product/${p.slug}`,
+    url: `https://www.controlyourself.ca/product/${p.slug}`,
   })),
 };
 
@@ -43,8 +43,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://controlyourself.ca" },
-    { "@type": "ListItem", position: 2, name: "Product", item: "https://controlyourself.ca/product" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.controlyourself.ca" },
+    { "@type": "ListItem", position: 2, name: "Product", item: "https://www.controlyourself.ca/product" },
   ],
 };
 
