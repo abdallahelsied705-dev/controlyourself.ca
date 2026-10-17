@@ -1,0 +1,535 @@
+import { Metadata } from "next";
+import Link from "next/link";
+import { Check } from "lucide-react";
+import JsonLd from "../components/JsonLd";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import WhatsAppButton from "../components/WhatsAppButton";
+import { products } from "../lib/products";
+
+export const metadata: Metadata = {
+  title: { absolute: "IPTV Canada Plans & Prices – From C$13.99 | IPTV Canada" },
+  description:
+    "Compare IPTV Canada plans from C$13.99: 1, 3, 6, 12 or 24 months with 50,000+ channels, 4K Ultra HD and 7-day catch-up. No contract, instant activation.",
+  alternates: { canonical: "https://controlyourself.ca/product" },
+  openGraph: {
+    title: "IPTV Canada Plans & Prices – From C$13.99 | IPTV Canada",
+    description:
+      "50,000+ channels, 4K streaming, 7-day catch-up. Plans from C$13.99. Compare 1, 3, 6, 12 and 24-month IPTV Canada subscriptions.",
+    url: "https://controlyourself.ca/product",
+  },
+};
+
+const catalogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "IPTV Canada Subscription",
+  description:
+    "Premium IPTV Canada subscription with 50,000+ live channels, 200,000+ VODs, 4K Ultra HD quality, 7-day catch-up TV, and 24/7 support.",
+  image: "https://controlyourself.ca/opengraph-image",
+  brand: { "@type": "Brand", name: "IPTV Canada" },
+  offers: products.map((p) => ({
+    "@type": "Offer",
+    name: p.name,
+    price: p.price.toString(),
+    priceCurrency: "CAD",
+    availability: "https://schema.org/InStock",
+    priceValidUntil: "2026-12-31",
+    url: `https://controlyourself.ca/product/${p.slug}`,
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://controlyourself.ca" },
+    { "@type": "ListItem", position: 2, name: "Product", item: "https://controlyourself.ca/product" },
+  ],
+};
+
+const TRIAL_LINK = "https://wa.me/212710141872?text=controlyourself.ca%20-%20Free%2024-Hour%20Trial";
+
+const planFeatures = [
+  "50,000+ Live Channels",
+  "4K Ultra HD Streaming",
+  "7-Day Catch-Up TV",
+  "24/7 Support",
+];
+
+const trustPoints = [
+  {
+    icon: "📡",
+    title: "50,000+ Live Channels",
+    description:
+      "Canadian, sports, news, kids, and international channels — all in one subscription. Entertainment, sports, movies and thousands more.",
+  },
+  {
+    icon: "⚡",
+    title: "Anti-Freeze™ Technology",
+    description:
+      "Our 9.8-rated CDN infrastructure delivers smooth, buffer-free streaming even during the biggest live events and peak viewing hours.",
+  },
+  {
+    icon: "🔒",
+    title: "48-Hour Refund Promise",
+    description:
+      "If the service doesn't work as described, request a refund within 48 hours of purchase. Faults we can't fix within 72 hours get a pro-rated refund.",
+  },
+  {
+    icon: "🌍",
+    title: "Works Everywhere",
+    description:
+      "Use your subscription anywhere in the world. Perfect for travelers or anyone away from home. No VPN required.",
+  },
+];
+
+const monthlyEquivalents: Record<string, string> = {
+  "1-month-iptv-canada": "C$13.99/mo",
+  "3-month-iptv-canada": "C$11.66/mo",
+  "6-month-iptv-canada": "C$9.17/mo",
+  "12-month-iptv-canada": "C$7.92/mo",
+  "24-month-iptv-canada": "C$6.63/mo",
+};
+
+const devicesBySlug: Record<string, string> = {
+  "1-month-iptv-canada": "Up to 4",
+  "3-month-iptv-canada": "Up to 4",
+  "6-month-iptv-canada": "Up to 4",
+  "12-month-iptv-canada": "Up to 4",
+  "24-month-iptv-canada": "Up to 4",
+};
+
+
+// Prices per number of simultaneous connections (matches components/Pricing.tsx).
+const devicePriceRows = [
+  { plan: "1 month", prices: ["13.99", "20", "27", "34"] },
+  { plan: "3 months", prices: ["34.99", "48", "62", "75"] },
+  { plan: "6 months", prices: ["54.99", "75", "95", "115"] },
+  { plan: "12 months", prices: ["94.99", "130", "165", "200"] },
+  { plan: "24 months", prices: ["159", "215", "270", "325"] },
+];
+
+const planChooser = [
+  { who: "Trying IPTV for the first time", plan: "1 month — C$13.99", why: "Lowest commitment. Test the service on your own TV and internet for a full month after the free trial." },
+  { who: "Watching a season or a short stay", plan: "3 or 6 months — C$34.99 / C$54.99", why: "Covers a sports half-season or a few months away, at about C$9.17–C$11.66 a month." },
+  { who: "Replacing cable or satellite for good", plan: "12 months — C$94.99", why: "About C$7.92 a month — the best balance of price and flexibility for a household that watches TV every day." },
+  { who: "Set it and forget it", plan: "24 months — C$159", why: "The lowest monthly price (about C$6.63) and no renewals for two years." },
+];
+
+const planFaqs = [
+  { q: "What's the difference between the IPTV Canada plans?", a: "Nothing except length and price. Every plan includes the same 50,000+ live channels, 200,000+ movies and series, 4K quality, 7-day catch-up, EPG and 24/7 WhatsApp support." },
+  { q: "How many devices can I use?", a: "You choose 1, 2, 3 or 4 simultaneous connections when you subscribe. Each extra device adds to the price — see the table above — and each connection can stream on a different TV, phone or tablet at the same time." },
+  { q: "Is there a contract?", a: "No. There is no minimum contract — you pay for the plan length you choose, and you can stop at the end of any plan." },
+  { q: "How quickly is my subscription activated?", a: "Usually within minutes of payment. We send your M3U link or Xtream Codes login on WhatsApp, and our setup guides cover every device." },
+  { q: "Can I try before I buy?", a: "Yes. Every plan can be tested first with a free 24-hour trial — no credit card required. Message us on WhatsApp to start it." },
+  { q: "What is your refund policy?", a: "If the service doesn't work as described, you can request a refund within 48 hours of purchase. Technical faults we can't fix within 72 hours of reporting qualify for a pro-rated refund. Full details are in our refund policy." },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: planFaqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+};
+
+export default function ProductCatalogPage() {
+  return (
+    <>
+      <JsonLd data={catalogSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
+      <Navbar />
+
+      <main className="bg-ink-900 pt-[100px]">
+
+        {/* Breadcrumb */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2">
+          <nav className="text-zinc-500 text-sm flex items-center gap-1.5">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <span>/</span>
+            <span className="text-zinc-300">Product</span>
+          </nav>
+        </div>
+
+        {/* Hero */}
+        <section className="py-16 text-center px-4">
+          <p className="text-brand-400 text-sm font-semibold uppercase tracking-widest mb-4">
+            Pricing Plans
+          </p>
+          <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 leading-tight">
+            Choose Your IPTV Canada Plan
+          </h1>
+          <p className="text-zinc-400 text-lg max-w-2xl mx-auto mb-8">
+            All plans include the same premium features — 50,000+ channels, 4K quality, 7-day catch-up. The only difference is how long you subscribe and how much you save.
+          </p>
+          <div className="flex items-center justify-center gap-6 flex-wrap text-sm text-zinc-400">
+            <span>⭐ Free 24-hour trial</span>
+            <span className="text-zinc-700">|</span>
+            <span>✅ No contracts</span>
+            <span className="text-zinc-700">|</span>
+            <span>🔒 48-hour refund</span>
+          </div>
+        </section>
+
+        {/* Product Cards Grid */}
+        <section className="py-10 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {products.map((product) => {
+                const waLink = `https://wa.me/212710141872?text=${encodeURIComponent(product.whatsappMessage)}`;
+                return (
+                  <div
+                    key={product.slug}
+                    className={`relative rounded-2xl border p-7 flex flex-col transition-all duration-300 ${
+                      product.highlight
+                        ? "bg-gradient-to-br from-brand-500 to-brand-600 border-brand-400 shadow-lg shadow-brand-500/20"
+                        : "bg-ink-800 border-white/5 hover:border-brand-500/30"
+                    }`}
+                  >
+                    {/* Badge */}
+                    {product.badge && (
+                      <span
+                        className={`absolute -top-3 left-1/2 -translate-x-1/2 text-[11px] font-bold px-3 py-0.5 rounded-full whitespace-nowrap ${
+                          product.highlight
+                            ? "bg-white text-brand-600"
+                            : "bg-brand-500 text-white"
+                        }`}
+                      >
+                        {product.badge}
+                      </span>
+                    )}
+
+                    {/* Plan name & price */}
+                    <div className="mb-6">
+                      <h2
+                        className={`text-lg font-bold mb-1 ${
+                          product.highlight ? "text-white" : "text-white"
+                        }`}
+                      >
+                        {product.name}
+                      </h2>
+                      <div className="flex items-baseline gap-2">
+                        <span
+                          className={`text-4xl font-extrabold ${
+                            product.highlight ? "text-white" : "text-white"
+                          }`}
+                        >
+                          C${product.price}
+                        </span>
+                        <span
+                          className={`text-sm ${
+                            product.highlight ? "text-brand-100" : "text-zinc-400"
+                          }`}
+                        >
+                          {product.period}
+                        </span>
+                      </div>
+                      <p
+                        className={`text-xs mt-1 font-medium ${
+                          product.highlight ? "text-brand-100" : "text-brand-400"
+                        }`}
+                      >
+                        {monthlyEquivalents[product.slug]}
+                      </p>
+                    </div>
+
+                    {/* Features */}
+                    <ul className="flex flex-col gap-2.5 mb-8 flex-1">
+                      {planFeatures.map((feat) => (
+                        <li key={feat} className="flex items-center gap-2.5 text-sm">
+                          <span
+                            className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
+                              product.highlight
+                                ? "bg-white/25"
+                                : "bg-brand-500/15"
+                            }`}
+                          >
+                            <Check
+                              size={11}
+                              className={product.highlight ? "text-white" : "text-brand-400"}
+                            />
+                          </span>
+                          <span
+                            className={product.highlight ? "text-brand-50" : "text-zinc-300"}
+                          >
+                            {feat}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Buttons */}
+                    <div className="flex flex-col gap-2.5">
+                      <Link
+                        href={`/product/${product.slug}`}
+                        className={`text-center text-sm font-semibold px-5 py-2.5 rounded-full transition-colors ${
+                          product.highlight
+                            ? "bg-white text-brand-600 hover:bg-brand-50"
+                            : "bg-brand-500 hover:bg-brand-400 text-white"
+                        }`}
+                      >
+                        View Plan
+                      </Link>
+                      <a
+                        href={waLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`text-center text-sm font-medium px-5 py-2.5 rounded-full transition-colors ${
+                          product.highlight
+                            ? "bg-white/20 hover:bg-white/30 text-white border border-white/30"
+                            : "border border-white/10 hover:border-brand-500/40 text-zinc-300 hover:text-white"
+                        }`}
+                      >
+                        Subscribe Now
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Comparison Table */}
+        <section className="py-20 px-4 bg-ink-950 border-y border-white/5">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-brand-400 text-sm font-semibold uppercase tracking-widest mb-3">
+                Compare Plans
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">
+                All plans, side by side
+              </h2>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[640px]">
+                <thead>
+                  <tr className="border-b border-white/10">
+                    <th className="text-left text-zinc-400 text-sm font-medium py-3 pr-6 w-1/3">
+                      Feature
+                    </th>
+                    {products.map((p) => (
+                      <th
+                        key={p.slug}
+                        className={`text-center text-sm font-semibold py-3 px-3 ${
+                          p.highlight ? "text-brand-400" : "text-white"
+                        }`}
+                      >
+                        {p.badge && (
+                          <span className="block text-[10px] text-brand-400 font-bold uppercase mb-0.5">
+                            {p.badge}
+                          </span>
+                        )}
+                        {p.name.replace(" IPTV Canada", "")}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/5">
+                  <tr>
+                    <td className="py-3.5 pr-6 text-zinc-400 text-sm">Price</td>
+                    {products.map((p) => (
+                      <td
+                        key={p.slug}
+                        className={`text-center text-sm font-bold py-3.5 px-3 ${
+                          p.highlight ? "text-brand-400" : "text-white"
+                        }`}
+                      >
+                        C${p.price}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td className="py-3.5 pr-6 text-zinc-400 text-sm">Duration</td>
+                    {products.map((p) => (
+                      <td
+                        key={p.slug}
+                        className="text-center text-sm text-zinc-300 py-3.5 px-3"
+                      >
+                        {p.name.split(" ").slice(0, 2).join(" ")}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td className="py-3.5 pr-6 text-zinc-400 text-sm">Monthly equivalent</td>
+                    {products.map((p) => (
+                      <td
+                        key={p.slug}
+                        className={`text-center text-sm font-semibold py-3.5 px-3 ${
+                          p.highlight ? "text-brand-300" : "text-brand-300"
+                        }`}
+                      >
+                        {monthlyEquivalents[p.slug]}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td className="py-3.5 pr-6 text-zinc-400 text-sm">Devices</td>
+                    {products.map((p) => (
+                      <td
+                        key={p.slug}
+                        className="text-center text-sm text-zinc-300 py-3.5 px-3"
+                      >
+                        {devicesBySlug[p.slug]}
+                      </td>
+                    ))}
+                  </tr>
+                  {[
+                    "50,000+ Channels",
+                    "4K Ultra HD",
+                    "7-Day Catch-Up",
+                    "200,000+ VODs",
+                    "EPG Guide",
+                    "24/7 Support",
+                  ].map((feature) => (
+                    <tr key={feature}>
+                      <td className="py-3.5 pr-6 text-zinc-400 text-sm">{feature}</td>
+                      {products.map((p) => (
+                        <td key={p.slug} className="text-center py-3.5 px-3">
+                          <span className="inline-flex items-center justify-center w-5 h-5 bg-brand-500/15 rounded-full">
+                            <Check size={11} className="text-brand-400" />
+                          </span>
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* Why IPTV Canada */}
+        <section className="py-24 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-14">
+              <p className="text-brand-400 text-sm font-semibold uppercase tracking-widest mb-3">
+                Why Us
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">
+                Why IPTV Canada?
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {trustPoints.map((point) => (
+                <div
+                  key={point.title}
+                  className="bg-ink-800 border border-white/5 hover:border-brand-500/20 rounded-2xl p-7 transition-all"
+                >
+                  <div className="text-3xl mb-4">{point.icon}</div>
+                  <h3 className="text-white font-semibold text-base mb-2">{point.title}</h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed">{point.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Which plan */}
+        <section className="py-20 px-4 bg-ink-950 border-y border-white/5" aria-labelledby="choose-plan">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-brand-400 text-sm font-semibold uppercase tracking-widest mb-3">Plan guide</p>
+              <h2 id="choose-plan" className="text-3xl sm:text-4xl font-bold text-white">
+                Which IPTV Canada plan should I choose?
+              </h2>
+              <p className="text-zinc-400 mt-4 max-w-2xl mx-auto">
+                All plans include exactly the same channels and features. Longer plans simply cost less per month — start
+                short if you&apos;re new to IPTV, and move to a longer plan once you&apos;re happy.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {planChooser.map((c) => (
+                <div key={c.who} className="bg-ink-800 border border-white/5 rounded-2xl p-6">
+                  <p className="text-zinc-400 text-sm">{c.who}</p>
+                  <h3 className="text-white font-bold text-lg mt-1">{c.plan}</h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed mt-2">{c.why}</p>
+                </div>
+              ))}
+            </div>
+
+            <h2 className="text-2xl font-bold text-white mt-16 mb-6 text-center">IPTV Canada prices by number of devices</h2>
+            <div className="overflow-x-auto rounded-2xl border border-white/[0.07] bg-ink-900">
+              <table className="w-full min-w-[520px] text-sm">
+                <caption className="sr-only">IPTV Canada prices by plan length and number of simultaneous devices</caption>
+                <thead>
+                  <tr className="text-xs uppercase tracking-wider text-zinc-400">
+                    <th scope="col" className="px-5 py-4 text-left font-medium">Plan</th>
+                    {[1, 2, 3, 4].map((d) => (
+                      <th key={d} scope="col" className="px-5 py-4 text-right font-medium">
+                        {d} {d === 1 ? "device" : "devices"}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {devicePriceRows.map((r) => (
+                    <tr key={r.plan} className="border-t border-white/5">
+                      <th scope="row" className="px-5 py-3.5 text-left font-medium text-zinc-200">{r.plan}</th>
+                      {r.prices.map((p, i) => (
+                        <td key={i} className="px-5 py-3.5 text-right text-white">C${p}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-zinc-400 text-xs mt-3 text-center">No contract and no setup fee.</p>
+
+            <h2 className="text-2xl font-bold text-white mt-16 mb-6 text-center">Plan questions</h2>
+            <div className="space-y-3">
+              {planFaqs.map((f) => (
+                <details key={f.q} className="group bg-ink-800 border border-white/5 rounded-2xl px-6 py-5 open:border-brand-500/30">
+                  <summary className="cursor-pointer list-none font-medium text-white flex justify-between gap-4">
+                    {f.q}
+                    <span className="text-brand-300 transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                  </summary>
+                  <p className="text-zinc-400 text-sm leading-relaxed mt-3">{f.a}</p>
+                </details>
+              ))}
+            </div>
+            <p className="text-zinc-400 text-sm mt-6 text-center">
+              Read the full <Link href="/refund-policy" className="text-brand-300 underline underline-offset-2">refund policy</Link> or the{" "}
+              <Link href="/blog/iptv-subscription-canada" className="text-brand-300 underline underline-offset-2">IPTV subscription guide</Link>.
+            </p>
+          </div>
+        </section>
+
+        {/* Bottom CTA */}
+        <section className="py-20 px-4 bg-gradient-to-b from-ink-950 to-ink-900 border-t border-white/5">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-brand-400 text-sm font-semibold uppercase tracking-widest mb-4">
+              Not Sure Yet?
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              Try IPTV Canada free for 24 hours
+            </h2>
+            <p className="text-zinc-400 text-lg mb-8">
+              No credit card. No commitment. Just message us on WhatsApp and we&apos;ll activate your free trial in minutes.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href={TRIAL_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-brand-500 hover:bg-brand-400 text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-sm w-full sm:w-auto text-center"
+              >
+                Start Free 24-Hour Trial
+              </a>
+              <Link
+                href="/product/6-month-iptv-canada"
+                className="border border-white/15 hover:border-brand-500/40 text-zinc-300 hover:text-white font-medium px-8 py-3.5 rounded-full transition-colors text-sm w-full sm:w-auto text-center"
+              >
+                View Most Popular Plan
+              </Link>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <Footer />
+      <WhatsAppButton />
+    </>
+  );
+}

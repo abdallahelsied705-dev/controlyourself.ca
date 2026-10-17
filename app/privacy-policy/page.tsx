@@ -1,0 +1,76 @@
+import type { Metadata } from "next";
+import LegalPage from "../components/LegalPage";
+
+export const metadata: Metadata = {
+  title: { absolute: "Privacy Policy — IPTV Canada | Your Data Protection" },
+  description: "Learn how IPTV Canada collects, uses, and protects your personal data. We prioritize your privacy and security. Full transparency on data handling.",
+  alternates: { canonical: "https://controlyourself.ca/privacy-policy" },
+  openGraph: {
+    title: "Privacy Policy — IPTV Canada",
+    description: "How we protect and use your personal data.",
+    url: "https://controlyourself.ca/privacy-policy",
+  },
+};
+
+export default function PrivacyPolicy() {
+  return (
+    <LegalPage
+      badge="Legal"
+      path="/privacy-policy"
+      title="Privacy Policy"
+      subtitle="How we collect, use, and protect your personal information."
+      lastUpdated="17 October 2026"
+      sections={[
+        {
+          heading: "1. Information We Collect",
+          body: [
+            "Contact information: your name, email address and WhatsApp phone number when you request a trial, subscribe or contact support.",
+            "Payment information: processed securely through our payment providers. We do not store card details.",
+            "Device and connection information: IP address, device type, and app version for troubleshooting.",
+            "Usage data: channels viewed and connection logs, used to improve service quality.",
+          ],
+        },
+        {
+          heading: "2. How We Use Your Information",
+          body: [
+            "To provide and maintain your IPTV subscription.",
+            "To send you service-related communications (account activation, renewals).",
+            "To troubleshoot technical issues and improve our service.",
+            "To comply with legal obligations.",
+          ],
+        },
+        {
+          heading: "3. Data Sharing",
+          body: "We do not sell, trade, or rent your personal information to third parties. We may share data with trusted service providers who assist in operating our service (e.g. payment processors, hosting providers), under strict confidentiality agreements. When you message us on WhatsApp, your messages are also processed by WhatsApp (Meta) under its own privacy policy.",
+        },
+        {
+          heading: "4. Data Retention",
+          body: "We retain your personal data for as long as your account is active or as needed to provide services. You may request deletion of your data at any time by contacting us.",
+        },
+        {
+          heading: "5. Cookies",
+          body: "Our website does not use advertising or analytics cookies and does not track you across other sites. Our hosting provider records basic technical information, such as IP addresses, in server logs to keep the site secure and working.",
+        },
+        {
+          heading: "6. Your Rights (GDPR)",
+          body: [
+            "Right to access: request a copy of the personal data we hold about you.",
+            "Right to rectification: request correction of inaccurate data.",
+            "Right to erasure: request deletion of your data.",
+            "Right to restrict processing: request that we limit how we use your data.",
+            "Right to portability: receive your data in a portable format.",
+            "Right to object: object to processing based on our legitimate interests.",
+          ],
+        },
+        {
+          heading: "7. Security",
+          body: "We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, alteration, disclosure, or destruction. All connections to our service are encrypted via SSL/TLS.",
+        },
+        {
+          heading: "8. Contact",
+          body: "For any privacy-related queries or to exercise your rights, contact us at supportteamiptv@gmail.com. We will respond within 30 days.",
+        },
+      ]}
+    />
+  );
+}
